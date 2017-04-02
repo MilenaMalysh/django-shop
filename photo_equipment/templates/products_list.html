@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div>
+{#{% for row in range(products//2 + products % 2) %}#}
+    {% for row in products %}
+        {{ row.id }}
+  <ul>
+    <li>
+      <img src="{% static "logo.png" %}" alt="aaa" width="200" height="200"/>
+      <h3>The Grasslands</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
+    </li>
+
+    <li>
+      <img  src="{% static "logo.png" %}" alt="aaa" width="200" height="200"/>
+      <h3>Paradise Found</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
+    </li>
+  </ul>
+{% endfor %}
+</div>
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% load staticfiles %}
+{% load static %}
+<html>
+<head>
+    <title>Milena Cameras</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+
+    <div class="row centered menu-header" >
+        <a href="/"><div class="center-block" style="display: inline-block"><img  src="{% static "logo.png" %}" alt="aaa" width="500" height="150" /></div></a>
+        <a href="/basket"><div class="center-block" style="display: inline-block; vertical-align: sub"><img  src="{% static "basket.jpg" %}" alt="aaa" width="60" height="60" /></div></a>
+    </div>
+
+<div class="content container">
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>
