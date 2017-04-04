@@ -8,6 +8,7 @@ def environment(**options):
     env = Environment(**options)
     env.globals.update({
        'static': staticfiles_storage.url,
+       #  { 'static': staticfiles_storage.url, 'url': reverse, }
        'url': reverse,
     })
     return env

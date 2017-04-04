@@ -1,18 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
-{% load static %}
-    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+    <script>
+        function addProductToBasket() {
+            $.ajax({
+                type: "GET",
+                url: '/add_product_to_basket/' + {{ product.id }}+'/',
+                success: function (data) {
+                    console.log('OK');
+                    $("#to_basket").attr("disabled", true);
+                }
+            })
+        }
+    </script>
+    <link rel="stylesheet" href="{{ static('css/product.css') }}">
 <div>
 <div class="wrapper">
     		<div class="card radius shadowDepth1">
     			<div class="card__image border-tlr-radius">
-    				<img src='{{ product.photo.url}}' alt="image" class="border-tlr-radius" height="400" >
+    				<img src='{{ product.photo.url}}' alt="image" class="border-tlr-radius" height="400" width="400">
                 </div>
 
     			<div class="card__content card__padding">
 
     				<div class="card__meta">
-                         <time>Added: {{ product.created_date }}</time>
+                         <time>Added: {{ product.created_date.strftime('%Y-%m-%d') }}</time>
     				</div>
 
     				<article class="card__article">
@@ -20,16 +31,18 @@
                         <div class='right' style="display: inline">{{ product.price }} UAH</div>
 
 	    				<p>Resolution: {{ product.resolution }}</p>
-                        <p>Zoom: {{ product.resolution }}</p>
+                        <p>Zoom: {{ product.zoom }}</p>
                         <p>Aditional functions: </p>
                         <ul>
-                        {% for item in product.additional_functions.all %}
+                        {% for item in product.additional_functions.all() %}
                             <li><p>* {{ item.name }}</p></li>
                         {% endfor %}
                         </ul>
 	    			</article>
     			</div>
-                <a href="#" class="btn btn-success btn-lg">Want it!!</a>
+                <button type="button" class="btn btn-success btn-lg {% if in_basket %} disabled {% endif %}" id="to_basket"
+                        onclick=addProductToBasket()>Want it!!
+                </button>
     		</div>
     	</div>
 </div>

@@ -1,23 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-{% load static %}
 <div>
-{#{% for row in range(products//2 + products % 2) %}#}
-    {% for row in products %}
-        {{ row.id }}
-  <ul>
-    <li>
-      <img src="{% static "logo.png" %}" alt="aaa" width="200" height="200"/>
-      <h3>The Grasslands</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
-    </li>
-
-    <li>
-      <img  src="{% static "logo.png" %}" alt="aaa" width="200" height="200"/>
-      <h3>Paradise Found</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
-    </li>
-  </ul>
-{% endfor %}
+    <h1>Your basket</h1>
+    <ul class="basket-list">
+    {% for product in products %}
+        <li>
+          <img src='{{ product.photo.url}}' alt="image" class="border-tlr-radius" height="200" width="200" >
+          <h3>{{ product.name}}</h3>
+          <p>Price: {{product.price}}</p>
+        </li>
+    {% endfor %}
+    </ul>
 </div>
 {% endblock content %}

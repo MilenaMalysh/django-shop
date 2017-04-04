@@ -85,9 +85,12 @@ li p {
 	background-color: #eee;
 }
 	.card__image img {
-		width: 100%;
 		max-width: 100%;
 		display: block;
+		width: 400px;
+		height: 400px;
+		margin: 0 auto;
+		top: 0; left: 0; bottom: 0; right: 0;
 	}
 
 .card__content {

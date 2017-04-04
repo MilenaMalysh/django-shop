@@ -15,17 +15,7 @@
 /**
  * Basics Styles
  */
-html {
-	font-size: 100.5%;
-}
-body {
-	background-color: white;
-	font-family: Roboto;
-	font-weight: 400;
-	font-size: 1.6em;
-	line-height: 1.6;
-	color: lightslategray;
-}
+
 
 
 
@@ -93,11 +83,18 @@ li p {
 .card__image {
 	min-height: 100px;
 	background-color: #eee;
+
+	/*position: relative;*/
 }
 	.card__image img {
-		width: 100%;
+		/*width: 100%;*/
 		max-width: 100%;
 		display: block;
+		/*position: absolute;*/
+		width: 400px;
+		height: 400px;
+		margin: 0 auto;
+		top: 0; left: 0; bottom: 0; right: 0;
 	}
 
 .card__content {

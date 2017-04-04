@@ -13,7 +13,7 @@ class Instrument(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     resolution = models.CharField(max_length=15)
-    zoom = models.PositiveSmallIntegerField
+    zoom = models.IntegerField(default=1)
     additional_functions = models.ManyToManyField(AdditionalFunction)
     photo = models.ImageField(upload_to="images")
 
