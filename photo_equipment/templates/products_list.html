@@ -3,19 +3,19 @@
 
 <div>
     {% for index in range(products|length//2 + products|length % 2) %}
-    <ul>
+    <ul class = 'products-list'>
         <li>
             <a href="/product/{{ products[index*2].id }}"><img src='{{ products[index*2].photo.url}}' alt="image"
-                                                               class="border-tlr-radius" height="200" width="200"></a>
-            <h3>T{{ products[index*2].name}}</h3>
+                                                               class="border-tlr-radius" height="300" width="300"></a>
+            <h3>{{ products[index*2].name}}</h3>
             <p>{{ products[index*2].price}}</p>
         </li>
         {% if (index+1)*2 <= products|length %}
             <li>
                 <a href="/product/{{ products[index*2+1].id }}"><img src='{{ products[index*2+1].photo.url}}'
-                                                                     alt="image" class="border-tlr-radius" height="200"
-                                                                     width="200"></a>
-                <h3>T{{ products[index*2+1].name}}</h3>
+                                                                     alt="image" class="border-tlr-radius" height="300"
+                                                                     width="300"></a>
+                <h3>{{ products[index*2+1].name}}</h3>
                 <p>{{ products[index*2+1].price}}</p>
             </li>
       {% endif %}
